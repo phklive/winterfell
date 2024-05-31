@@ -63,7 +63,7 @@ fn convert_sync(input: &mut Item) -> TokenStream2 {
 fn convert_async(input: &mut Item) -> TokenStream2 {
     match input {
         Item::Trait(item) => quote!(#[async_trait::async_trait]#item),
-        Item::Impl(item) => quote!(#[async_trait::async_trait]#item),
+        Item::Impl(item) => quote!(#item),
         Item::Fn(item) => quote!(#item),
         Item::Static(item) => quote!(#item),
     }
